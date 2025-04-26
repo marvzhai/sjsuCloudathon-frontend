@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
+//import 
+
 export default function CategoryCard({ title, image, count }) {
   return (
     <Link href={`/category/${title.toLowerCase()}`}>

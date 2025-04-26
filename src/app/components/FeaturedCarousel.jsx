@@ -8,21 +8,21 @@ import { Button } from "@/components/ui/button";
 const featuredProducts = [
   {
     id: "featured1",
-    title: "Summer Collection 2024",
-    description: "Discover our new summer styles with up to 30% off",
-    image: "/placeholder.svg?height=600&width=1200",
+    title: "Gaming",
+    description: "Discover our new Wireless RBG Headphones with up to 30% off",
+    image: "/products/headphones.jpg",
     color: "from-blue-500/20 to-purple-500/20",
   },
   {
     id: "featured2",
-    title: "Tech Gadgets Sale",
+    title: "",
     description: "Latest electronics with exclusive online discounts",
     image: "/placeholder.svg?height=600&width=1200",
     color: "from-rose-500/20 to-orange-500/20",
   },
   {
     id: "featured3",
-    title: "Home Essentials",
+    title: "",
     description: "Transform your space with our curated collection",
     image: "/placeholder.svg?height=600&width=1200",
     color: "from-green-500/20 to-teal-500/20",
@@ -85,7 +85,7 @@ export default function FeaturedCarousel() {
             className={`absolute inset-0 bg-gradient-to-r ${featuredProducts[current].color}`}
           ></div>
           <div className="absolute inset-0 flex md:items-center p-8 md:p-12">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="grid md:grid-cols-2 gap-8 items-center w-full">
               <div className="z-10">
                 <motion.h3
                   className="text-2xl md:text-3xl font-bold text-slate-900 mb-4"
@@ -113,15 +113,23 @@ export default function FeaturedCarousel() {
                   </Button>
                 </motion.div>
               </div>
-              <div className="hidden md:block">
-                <motion.img
-                  src={featuredProducts[current].image}
-                  alt={featuredProducts[current].title}
-                  className="w-full h-64 object-contain"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+              <div className="hidden md:flex items-center justify-center h-full">
+                <motion.div
+                  className="relative w-full h-full flex items-center justify-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                />
+                >
+                  <motion.img
+                    src={featuredProducts[current].image}
+                    alt={featuredProducts[current].title}
+                    className="w-full h-full object-cover rounded-lg"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    style={{ maxHeight: "280px" }}
+                  />
+                </motion.div>
               </div>
             </div>
           </div>
@@ -144,7 +152,7 @@ export default function FeaturedCarousel() {
       <Button
         variant="ghost"
         size="icon"
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white/70 backdrop-blur-sm border border-slate-200/50 shadow-sm z-10"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 h-6 w-6 rounded-full bg-white/70 backdrop-blur-sm border border-slate-200/50 shadow-sm z-10"
         onClick={prev}
       >
         <ChevronLeft className="h-5 w-5" />
@@ -154,7 +162,7 @@ export default function FeaturedCarousel() {
       <Button
         variant="ghost"
         size="icon"
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white/70 backdrop-blur-sm border border-slate-200/50 shadow-sm z-10"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 h-6 w-6 rounded-full bg-white/70 backdrop-blur-sm border border-slate-200/50 shadow-sm z-10"
         onClick={next}
       >
         <ChevronRight className="h-5 w-5" />
