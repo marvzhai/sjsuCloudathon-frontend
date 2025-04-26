@@ -1,13 +1,20 @@
-"use client";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import ItemCard from "./components/ItemCard";
+'use client';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import ItemCard from './components/ItemCard';
 
-import FeaturedCarousel from "./components/FeaturedCarousel";
-import { Badge } from "@/components/ui/badge";
-import { Search, ShoppingCart, User, Heart, Menu } from "lucide-react";
+import FeaturedCarousel from './components/FeaturedCarousel';
+import { Badge } from '@/components/ui/badge';
+import { Search, ShoppingCart, User, Heart, Menu } from 'lucide-react';
 
+const API =
+  'http://anycompany-env-2.eba-c4bw3cbx.us-east-1.elasticbeanstalk.com/';
 
+async function getProducts() {
+  const response = await fetch(`${API}/api/products`);
+  const data = await response.json();
+  return data;
+}
 
 export default function Home() {
   return (
@@ -189,7 +196,7 @@ export default function Home() {
                 id="1"
                 name="Wireless Headphones"
                 price={129.99}
-                image="/placeholder.svg?height=300&width=300"
+                image="/products/headphones.jpg"
                 rating={4.8}
                 reviewCount={120}
               />
@@ -197,7 +204,7 @@ export default function Home() {
                 id="2"
                 name="Smart Watch Series 7"
                 price={299.99}
-                image="/placeholder.svg?height=300&width=300"
+                image="/products/smart watch.jpg"
                 rating={4.9}
                 reviewCount={85}
                 badge="New"
@@ -206,7 +213,7 @@ export default function Home() {
                 id="3"
                 name="Portable Bluetooth Speaker"
                 price={79.99}
-                image="/placeholder.svg?height=300&width=300"
+                image="/products/speaker.png"
                 rating={4.7}
                 reviewCount={63}
                 discount={15}
@@ -215,7 +222,7 @@ export default function Home() {
                 id="4"
                 name="Wireless Charging Pad"
                 price={49.99}
-                image="/placeholder.svg?height=300&width=300"
+                image="/products/charging.jpg"
                 rating={4.5}
                 reviewCount={42}
               />
